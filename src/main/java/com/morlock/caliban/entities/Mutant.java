@@ -12,10 +12,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name = "mutant")
 public class Mutant implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
 	@Id
@@ -25,7 +26,7 @@ public class Mutant implements Serializable {
 
 	@Column(name = "dna")
 	private String[] dna;
-	
+
 	@JsonIgnore
 	@Column(name = "confirmed")
 	private boolean confirmed;
@@ -41,7 +42,7 @@ public class Mutant implements Serializable {
 	public void setDna(String[] dna) {
 		this.dna = dna;
 	}
-	
+
 	public boolean isConfirmed() {
 		return confirmed;
 	}
@@ -72,7 +73,7 @@ public class Mutant implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Mutant [id=" + id + ", dna=" + Arrays.toString(dna) + ", confirmed="+confirmed+"]";
+		return "Mutant [id=" + id + ", dna=" + Arrays.toString(dna) + ", confirmed=" + confirmed + "]";
 	}
 
 }

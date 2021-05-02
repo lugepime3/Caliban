@@ -23,20 +23,19 @@ import javax.transaction.Transactional;
 @Transactional
 public class MutantServiceImpl implements MutantService {
 
-	private static final Logger logger = LoggerFactory.getLogger(com.morlock.caliban.services.impl.MutantServiceImpl.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(com.morlock.caliban.services.impl.MutantServiceImpl.class);
 	private static final String UNEXPECTED_ERROR_SAVE = "An unexpected error occurred: ";
 
-	@Autowired(required=false)
+	@Autowired(required = false)
 	@Qualifier("MutantRepository")
 	MutantRepository mutantRepository;
 
-	@Autowired(required=false)
+	@Autowired(required = false)
 	@Qualifier("caliban")
 	private final ICaliban caliban;
-	
-	
 
-	public MutantServiceImpl(ICaliban caliban) { 
+	public MutantServiceImpl(ICaliban caliban) {
 		super();
 		this.caliban = caliban;
 	}
@@ -59,23 +58,6 @@ public class MutantServiceImpl implements MutantService {
 		return new Mutant();
 	}
 
-	/*
-		public Mutant saveMutant(Mutant mutantNew) {
-
-		String[] dna = mutantNew.getDna();
-		try {
-			if (caliban.isMutant(dna)) {
-				mutantNew.setConfirmed(true);
-			} else {
-				mutantNew.setConfirmed(false);
-			}
-			return mutantRepository.save(mutantNew);
-		} catch (TechnicalException e) {
-			logger.error(UNEXPECTED_ERROR_SAVE.concat(e.getMessage()));
-		}
-		return new Mutant();
-	}
-	 */
 	public Map<String, Object> stats() {
 
 		List<Mutant> records = mutantRepository.findAll();

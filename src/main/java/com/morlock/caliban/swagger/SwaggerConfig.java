@@ -12,22 +12,24 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@EnableSwagger2
+@EnableSwagger2 
 public class SwaggerConfig {
 	@Bean
 	public Docket apiDocket() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
+				//.paths(PathSelectors.ant("/api/*"))
 				.apis(RequestHandlerSelectors.basePackage("com.morlock.caliban")).paths(PathSelectors.any()).build()
+				.useDefaultResponseMessages(true)
 				.apiInfo(getApiInfo());
 	}
 
 	private ApiInfo getApiInfo() {
-		return new ApiInfo("Northwind API", // NAME
-				"API-DOCUMENTATION", // DESCRIPTION
+		return new ApiInfo("Caliban-API", // NAME
+				"Detector del Gen Mutante", // DESCRIPTION
 				"V. 1.0", // VERSION
 				"TERMS OF SERVICE URL", // TERMS OF SERVICE URL
-				new Contact("lpino", "lugepime3@gmail.com", "A@A.COM"), "LICENSE", // LISENSE
-				"HTTP://WWW.JAVADESDE0.COM" // TERMS OF LICENSE URL
+				new Contact("Luis G. Pino", "*cambiar*", "lugepime3@gmail.com"), "Test-Api", // LISENSE
+				"*cambiar*" // TERMS OF LICENSE URL
 		);
 	}
 

@@ -9,7 +9,7 @@ public interface MutantService {
 	List<Mutant> findAllMutants();
 
 	Mutant saveMutant(Mutant mutantNew);
-	
+
 	public Map<String, Object> stats();
 
 }

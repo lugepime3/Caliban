@@ -135,8 +135,7 @@ public class CalibanImpl implements ICaliban {
 					this.charToPattern.add(element);
 				}
 			}
-		} 
-		catch (Exception e) {
+		} catch (Exception e) {
 			this.setErrorInComponent(true);
 			logger.error(UNEXPECTED_ERROR.concat(e.getMessage()));
 		}

@@ -11,7 +11,8 @@ public interface MutantController {
 	List<Mutant> getMutants();
 
 	ResponseEntity<Mutant> addMutant(Mutant mutant);
-	
-	String stats()throws JsonProcessingException;
+
+	String stats() throws JsonProcessingException;
+
 
 }
