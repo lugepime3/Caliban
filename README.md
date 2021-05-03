@@ -40,5 +40,7 @@ Test técnico mercado-libre
 > Alli  accedera a la interfaz de "swagger-ui", encontrara que es un entorno diseñdo especificamente para ofrecer una experiencia de usuario agradable en lo concerniente a realizar las pruebas sobre los endpoint que
 conforman un api determinada.Para inciar de click sobre "List Operations", debe desplegar los endpoint. Ahora bien, fijese en las "Notas de Implementacion" para darse una idea de que debe realizar.
 Cada elemento posee un ejemplo de lo que debe insertar para probar.
+# Anexos:
+* Imagen de cobertura: https://github.com/lugepime3/Caliban/blob/master/Cobertura.PNG
 
     
