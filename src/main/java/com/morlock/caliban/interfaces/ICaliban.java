@@ -36,5 +36,6 @@ public interface ICaliban {
 	boolean isPatternInDiagonal() throws TechnicalException;
 
 	boolean isMutant(String[] entry) throws TechnicalException;
-
+	
+	public boolean isErrorInComponent();
 }

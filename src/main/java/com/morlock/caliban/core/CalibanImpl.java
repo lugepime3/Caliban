@@ -1,13 +1,18 @@
 package com.morlock.caliban.core;
 
-import com.morlock.caliban.exceptions.TechnicalException;
-import com.morlock.caliban.interfaces.ICaliban;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import com.morlock.caliban.exceptions.TechnicalException;
+import com.morlock.caliban.interfaces.ICaliban;
 
 @SuppressWarnings("JavaDoc")
 @Component
@@ -15,7 +20,7 @@ import java.util.*;
 public class CalibanImpl implements ICaliban {
 	private static final Logger logger = LoggerFactory.getLogger(CalibanImpl.class);
 
-	private static final int PATTERN_LENGHT = 4;
+	public static final int PATTERN_LENGHT = 4;
 	private static final String UNEXPECTED_ERROR = "An unexpected error occurred: ";
 	private static final String DETECTED_ERROR = "An error was detected in the component... ";
 	private char[][] matrix;
@@ -34,6 +39,7 @@ public class CalibanImpl implements ICaliban {
 	 *
 	 * @return
 	 */
+	@Override
 	public boolean isErrorInComponent() {
 		return isErrorInComponent;
 	}

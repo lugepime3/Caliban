@@ -40,17 +40,28 @@ public class MutantServiceImpl implements MutantService {
 		this.caliban = caliban;
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public List<Mutant> findAllMutants() {
 		return mutantRepository.findAll();
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public Mutant saveMutant(Mutant mutantNew) {
-
+		
 		String[] dna = mutantNew.getDna();
+
 		try {
 			mutantNew.setConfirmed(caliban.isMutant(dna));
+			logger.info(("Es Mutante ?"+caliban.isMutant(dna) +" Hay Fallas En El Componente ? "+caliban.isErrorInComponent()));
+			if(caliban.isErrorInComponent()) {
+				return null;
+			}
 			return mutantRepository.save(mutantNew);
 		} catch (TechnicalException e) {
 			logger.error(UNEXPECTED_ERROR_SAVE.concat(e.getMessage()));
@@ -58,6 +69,9 @@ public class MutantServiceImpl implements MutantService {
 		return new Mutant();
 	}
 
+	/**
+	 * 
+	 */
 	public Map<String, Object> stats() {
 
 		List<Mutant> records = mutantRepository.findAll();
